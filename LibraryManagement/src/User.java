@@ -1,3 +1,5 @@
+
+
 /*
  * This class defines the base class attributes and methods for other class objects.
  */
@@ -8,7 +10,7 @@ public class User {
     private String lastName;
     private int age;
     private String email;
-    private boolean userRegistered = false;
+    private boolean userRegistered;
 
     public User(int userId, String firstName, String lastName, int age, String email){
         this.userId = userId;
@@ -16,6 +18,7 @@ public class User {
         this.lastName = lastName;
         this.age = age;
         this.email = email;
+        this.userRegistered = false;
     }
 
     // These are the getter methods
@@ -55,6 +58,10 @@ public class User {
         return email;
     }
 
+    public boolean getUserRegistration(){
+        return this.userRegistered;
+    }
+
     public void setUserId(int someUserId){
         userId = someUserId;
     }
@@ -91,10 +98,10 @@ public class User {
     }
 
     public void setRegistration(){
-        if (this.getUserID() > 0 && this.getFirstName() != null 
+        if (this.getUserID() > 0 && this.getFirstName() != null && !firstName.isEmpty()
         && this.getLastName() != null && this.getAge() > 10 && 
         this.getAge() <= 100 && this.getEmail() != null){
-            userRegistered = true;
+            this.userRegistered = true;
             System.out.println("The user has been successfully registered into the system.");
         } 
         else{
