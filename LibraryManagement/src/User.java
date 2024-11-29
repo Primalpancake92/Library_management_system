@@ -1,5 +1,3 @@
-
-
 /*
  * This class defines the base class attributes and methods for other class objects.
  */
