@@ -90,5 +90,17 @@ public class Library{
 
     public String getEmail(){
         return email;
-    }    
+    }   
+
+    @Override
+    public String toString(){
+        String formatted = String.format("Library name: %s\nLibrary address: %s\nLibrary phone number: %d\nLibrary email: %s", this.name, this.address, this.phoneNumber, this.email);
+        return formatted;
+    }
+
+    public static void main(String[] args){
+        Library library = new Library("Central Library", "1 Main St", 5551234, "library@example.com");
+        library.setEmail("StopJerkingOff@gmail.com");
+        System.out.println(library);
+    }
 }
