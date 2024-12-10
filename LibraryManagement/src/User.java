@@ -18,6 +18,41 @@ public class User {
         this.email = email;
         this.userRegistered = false;
     }
+    
+    public void setAge(int newAge){
+        if (newAge > 10 && newAge <= 100){
+            age = newAge;
+        }
+        else {
+            if (newAge <= 10){
+                System.out.println("You are not of age to be registered in the library's system.");
+            }
+            else {
+                System.out.println("This is a non-sensical age.");
+            }
+        }
+    }
+
+    public void setEmail(String newEmail){
+        if (EmailValidator.isValidEmail(newEmail) == true){
+            email = newEmail;
+        }
+        else{
+            System.out.println("This is not a valid email.");
+        }
+    }
+
+    public void setRegistration(){
+        if (this.getUserID() > 0 && this.getFirstName() != null && !firstName.isEmpty()
+        && this.getLastName() != null && this.getAge() > 10 && 
+        this.getAge() <= 100 && this.getEmail() != null){
+            this.userRegistered = true;
+            System.out.println("The user has been successfully registered into the system.");
+        } 
+        else{
+            System.out.println("User registration has failed. Please check alll fields.");
+        }
+    }
 
     // These are the getter methods
 
@@ -70,40 +105,5 @@ public class User {
 
     public void setLastName(String newLastName){
         lastName = newLastName;
-    }
-
-    public void setAge(int newAge){
-        if (newAge > 10 && newAge <= 100){
-            age = newAge;
-        }
-        else {
-            if (newAge <= 10){
-                System.out.println("You are not of age to be registered in the library's system.");
-            }
-            else {
-                System.out.println("This is a non-sensical age.");
-            }
-        }
-    }
-
-    public void setEmail(String newEmail){
-        if (EmailValidator.isValidEmail(newEmail) == true){
-            email = newEmail;
-        }
-        else{
-            System.out.println("This is not a valid email.");
-        }
-    }
-
-    public void setRegistration(){
-        if (this.getUserID() > 0 && this.getFirstName() != null && !firstName.isEmpty()
-        && this.getLastName() != null && this.getAge() > 10 && 
-        this.getAge() <= 100 && this.getEmail() != null){
-            this.userRegistered = true;
-            System.out.println("The user has been successfully registered into the system.");
-        } 
-        else{
-            System.out.println("User registration has failed. Please check alll fields.");
-        }
     }
 }

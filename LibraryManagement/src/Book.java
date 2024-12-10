@@ -38,6 +38,14 @@ public final class Book {
         }
     }
 
+    public void setBorrowedBook(){
+        this.borrowed = true;
+    }
+
+    public void setUnborrowedBook(){
+        this.borrowed = false;
+    }
+
     public int getBookId(){
         return bookId;
     }
@@ -61,20 +69,9 @@ public final class Book {
     public boolean getBorrowed(){
         return borrowed;
     }
-
+    
+    @Override
     public String toString(){
         return String.format("Book ID: %d\nBook Title: %s\nAuthor: %s", this.getBookId(), this.getTitle(), this.getAuthor());
     }
-    /* 
-    public static void main(String[] args){
-        String author = "";
-        int bookID = 123895;
-        String title = "The Chamber of Secrets";
-
-        Book book1 = new Book(bookID, title, author);
-        book1.setBookId(1748348450);
-        book1.setAuthor("JK. Rowling");
-        System.out.println(book1);
-    }
-    */
 }
